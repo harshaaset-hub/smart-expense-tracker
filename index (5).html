@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOGIN PAGE -->
+    <div id="authPage" class="auth-container">
+        <div class="auth-box">
+            <div class="logo">💰</div>
+            <h1>Smart Expense Tracker</h1>
+            <p class="subtitle">Manage your money smartly!</p>
+
+            <form id="loginForm">
+                <input type="email" id="email"
+                    placeholder="Email address" required>
+
+                <input type="password" id="password"
+                    placeholder="Password" required minlength="6">
+
+                <button type="submit">Login</button>
+            </form>
+
+            <p class="switch-text">
+                Don't have an account?
+                <a href="#" id="showSignup">Sign Up</a>
+            </p>
+
+            <form id="signupForm" class="hidden">
+                <input type="text" id="name"
+                    placeholder="Your name" required>
+
+                <input type="email" id="signupEmail"
+                    placeholder="Email address" required>
+
+                <input type="password" id="signupPassword"
+                    placeholder="Create password (min 6 characters)"
+                    required minlength="6">
+
+                <button type="submit">Create Account</button>
+
+                <p class="switch-text">
+                    Already registered?
+                    <a href="#" id="showLogin">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" class="hidden">
+
+        <header>
+            <div>
+                <h2>💰 Smart Expense Tracker</h2>
+                <p>Welcome, <span id="welcomeName">User</span>!</p>
+            </div>
+            <button id="logoutBtn" class="logout">Logout</button>
+        </header>
+
+        <main>
+            <h1>Dashboard</h1>
+            <p class="subtitle">Track your money. Control your future.</p>
+
+            <section class="cards">
+                <div class="card balance">
+                    <p>Total Balance</p>
+                    <h2 id="balance">₹0.00</h2>
+                </div>
+
+                <div class="card income">
+                    <p>Total Income</p>
+                    <h2 id="income">₹0.00</h2>
+                </div>
+
+                <div class="card expense">
+                    <p>Total Expenses</p>
+                    <h2 id="expense">₹0.00</h2>
+                </div>
+            </section>
+
+            <!-- ADD TRANSACTION -->
+            <section class="panel">
+                <h2>Add Transaction</h2>
+
+                <form id="transactionForm">
+                    <label>Transaction Type</label>
+                    <select id="type" required>
+                        <option value="expense">Expense</option>
+                        <option value="income">Income</option>
+                    </select>
+
+                    <label>Amount (₹)</label>
+                    <input type="number" id="amount"
+                        placeholder="Enter amount"
+                        min="0.01" step="0.01" required>
+
+                    <label>Category</label>
+                    <select id="category" required>
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Education">Education</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Salary">Salary</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <label>Description</label>
+                    <input type="text" id="description"
+                        placeholder="What was this for?" required>
+
+                    <label>Date</label>
+                    <input type="date" id="date" required>
+
+                    <button type="submit">+ Add Transaction</button>
+                </form>
+            </section>
+
+            <!-- BUDGET -->
+            <section class="panel">
+                <h2>🎯 Monthly Budget</h2>
+                <p>Set your monthly expense limit.</p>
+
+                <form id="budgetForm">
+                    <input type="number" id="budget"
+                        placeholder="Enter budget in ₹"
+                        min="1" step="0.01" required>
+
+                    <button type="submit">Set Budget</button>
+                </form>
+
+                <p id="budgetInfo">No budget set yet.</p>
+
+                <div class="progress-bg">
+                    <div id="budgetProgress"></div>
+                </div>
+            </section>
+
+            <!-- TRANSACTION HISTORY -->
+            <section class="panel">
+                <h2>📋 Transaction History</h2>
+
+                <div class="filters">
+                    <input type="month" id="monthFilter">
+                    <select id="typeFilter">
+                        <option value="all">All Transactions</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expenses</option>
+                    </select>
+                </div>
+
+                <div id="transactions">
+                    <p>No transactions yet.</p>
+                </div>
+            </section>
+
+            <!-- CATEGORY SUMMARY -->
+            <section class="panel">
+                <h2>📊 Expense Summary</h2>
+                <div id="summary">
+                    <p>Add expenses to see your summary.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Smart Expense Tracker © 2026</p>
+            <p>Spend wisely. Save happily. 💚</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
